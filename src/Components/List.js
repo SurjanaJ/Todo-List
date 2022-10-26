@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 export const List = ({ tasks, setTasks }) => {
-
-const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
 
   //remove tasks
   const remove = (selected) => {
@@ -16,46 +15,49 @@ const [isChecked, setIsChecked] = useState(false)
     setTasks(arr);
   };
 
-//complete
-const completeTask = (selected)=> {
- 
-  setTasks(  tasks.map((task)=> {
-  if(task.id === selected.id)
-  {
-     return {...task, complete:!task.complete}
-
-  }
-  else
-  {
-    return (task)
-  }
-}
- ))
- 
-}
+  //complete
+  const completeTask = (selected) => {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === selected.id) {
+          return { ...task, complete: !task.complete };
+        } else {
+          return task;
+        }
+      })
+    );
+  };
 
   return (
     <>
       <div>
-        <ul className='list-group list-group-flush '>
+        <ul className="list-group list-group-flush ">
           {tasks.map((task) => {
             return (
-              <li className='list-group-item d-flex justify-content-between align-items-center rounded-1 border-0' style={{backgroundColor : task.complete === true ? 'lightGreen' : 'white'}} key={task.id}>
-              <div><input role='button' type='checkbox'
-              checked={task.complete}
-              onClick={()=>completeTask(task)} />
-                {" "}
-                 {task.name} </div>
+              <li
+                className="list-group-item d-flex justify-content-between align-items-center rounded-1 border-0"
+                style={{
+                  backgroundColor:
+                    task.complete === true ? "lightGreen" : "#f2f2f2",
+                }}
+                key={task.id}
+              >
+                <div>
+                  <input
+                    role="button"
+                    type="checkbox"
+                    checked={task.complete}
+                    onClick={() => completeTask(task)}
+                  />{" "}
+                  {task.name}{" "}
+                </div>
                 {/* <div
                   onClick={()=>completeTask(task)}
                   className="btn btn-ouline-success btn-sm text-success"
                 >
                   Complete
                 </div>{" "} */}
-                <div 
-                  onClick={() => remove(task)}
-                  className="btn text-danger"
-                >
+                <div onClick={() => remove(task)} className="btn text-danger">
                   X
                 </div>{" "}
               </li>
