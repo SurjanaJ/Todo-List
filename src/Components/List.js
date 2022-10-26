@@ -38,7 +38,7 @@ export const List = ({ tasks, setTasks }) => {
                 className="list-group-item d-flex justify-content-between align-items-center rounded-1 border-0"
                 style={{
                   backgroundColor:
-                    task.complete === true ? "lightGreen" : "lightGray",
+                    task.complete === true ? "lightGreen" : "#f2f2f2",
                 }}
                 key={task.id}
               >
