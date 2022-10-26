@@ -30,15 +30,15 @@ export const List = ({ tasks, setTasks }) => {
 
   return (
     <>
-      <div>
-        <ul className="list-group list-group-flush ">
+      <div className="container d-flex justify-content-center">
+        <ul className="list-group  row w-75 list-group-flush ">
           {tasks.map((task) => {
             return (
               <li
-                className="list-group-item d-flex justify-content-between align-items-center rounded-1 border-0"
+                className="list-group-item col d-flex justify-content-between align-items-center rounded-1 border-0"
                 style={{
                   backgroundColor:
-                    task.complete === true ? "lightGreen" : "#f2f2f2",
+                    task.complete === true ? "#d0f0c0 " : "#f2f2f2",
                 }}
                 key={task.id}
               >
